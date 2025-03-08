@@ -1,22 +1,35 @@
 #include <stdio.h>
 
+int main() {
+    int i, n, t1 = 0, t2 = 1, NextTerm;
 
-int main(){
-	int i, n, t1 = 0, t2 = 1, NextTerm = 0;;
-	printf("Enter Number: \n");
-	scanf("%d", &n);
-	
-	printf("The Fibonacci Series are: %d, %d, ", t1, t2);
-	NextTerm = t1 + t2;
-	
-	for (i = 3; i <= n; i++){
-		printf("%d, ", NextTerm);
-		t1 = t2;
-		t2 = NextTerm;
-		NextTerm = t1 + t2;
-	}
-	
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
 
-return 0;
+    if (n <= 0) {
+        printf("Please enter a positive integer.\n");
+        return 1;
+    }
+
+    printf("The Fibonacci Series: ");
+
+    if (n == 1) {
+        printf("%d\n", t1);
+        return 0;
+    }
+
+    printf("%d, %d", t1, t2);
+
+    NextTerm = t1 + t2;
+    for (i = 3; i <= n; i++) {
+        printf(", %d", NextTerm);
+        t1 = t2;
+        t2 = NextTerm;
+        NextTerm = t1 + t2;
+    }
+    
+    printf("\n");
+    return 0;
 }
+
 
